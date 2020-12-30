@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить компанию</title>
+</head>
+<body>
+<form method="post" name="addCompany">
+    <label>Город - </label>
+    <select name="city">
+        <option th:each="city : ${cityList}"
+                th:text="${city.name}">
+        </option>
+    </select>
+    <label>Статус заказа - </label>
+    <select name="status">
+        <option th:each="status : ${statusList}"
+                th:text="${status.name}">
+        </option>
+    </select>
+    <label>Предмет заказа - </label>
+    <select name="cargo">
+        <option th:each="cargo : ${cargoList}"
+                th:text="${cargo.name}">
+        </option>
+    </select>
+
+    <input type="text" placeholder="Название" name="name">
+    <button status="submit" >Добавить</button>
+</form>
+<br>
+<a href="/list">Список компаний</a>
+
+
+</body>
+</html>
